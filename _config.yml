@@ -26,7 +26,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Yuxuan Zhang's Personal Blog
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.yuxuanzhang.net" # the base hostname & protocol for your site, e.g. http://example.com
-header-img: "img/uni_header1.jpg"
+header-img: "img/uni_header.jpg"
 post-header-img: "img/post_header.jpg"
 
 # SNS settings      

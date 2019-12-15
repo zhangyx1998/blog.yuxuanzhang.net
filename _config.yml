@@ -31,7 +31,11 @@ post-header-img: "img/post_header.jpg"
 
 # SNS settings      
 github_username: zhangyx1998
-weibo_username: zhangyx1998
+# twitter_username:
+# facebook_username: 
+linkedin_username: yuxuan-zhang-98a566157
+zhihu_username: yuxuan.zhang
+weibo_username: yuxuan-zhang
 
 # Build settings
 plugins:

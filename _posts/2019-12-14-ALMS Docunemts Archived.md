@@ -22,12 +22,12 @@ tags:
 >To run the project, you need MySQL/Mariadb ready on your computer, and setup a database named "ATLAS_Main". Also, refer to SQL_Desc.txt for detailed command on how to setup specific tables, and how to GRANT usage to the python code.
 >
 >Finally, to make everything run automatically, insert the path of launch.sh to the crontab in Linux system using following commands:
->```
+>```sh
 >crontab -e #You will see the vi interface after pressing "Enter"
->press key "i"
->insert:"* * * * * [path]/launch.sh"
->press "esc"
->put in ":wq", "Enter"
+># press key "i"
+># insert:"* * * * * [path]/launch.sh"
+># press "esc"
+># put in ":wq", "Enter"
 >```
 >All Done!
 
@@ -160,7 +160,15 @@ Also: You may see the demo [HERE](http://www.yuxuanzhang.net).
 #### V4.04
 
 + Minor Bug Fix
-+ Add API "Onfocus" to ZChart: `chartobject.onfocus=function(onfocus_timestamp,this_object){;}`
++ Add API "Onfocus" to ZChart: 
+  
+  ```js
+  chartobject.onfocus=
+	function(onfocus_timestamp,this_object){
+		;
+	}
+  ```
++ 
 + Using API "Onfocus" to highlight the lines selected. (UX Improvement)
 
 ***

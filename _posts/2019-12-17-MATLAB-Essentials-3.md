@@ -10,8 +10,8 @@ tags:
 ---
 
 ### Index of _Matlab Essentials_
-* [基本语法和数据结构](MATLAB-Essentials-1.html)
-* [Matlab常用函数](MATLAB-Essentials-2.html)
+* [基本语法和数据结构](./MATLAB-Essentials-1.html)
+* [Matlab常用函数](./MATLAB-Essentials-2.html)
 * **具体应用(本文)**
 
 

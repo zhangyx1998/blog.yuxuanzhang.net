@@ -2,7 +2,7 @@
 layout: post
 title:  "MATLAB Essentials"
 subtitle:   "Basic syntax, opreators and functions."
-header-img: "/resources/matlab_logo.png"
+header-img: "resources/matlab_logo.png"
 date:   2019-12-17 15:30:00 +0800
 tags:
     - MATLAB

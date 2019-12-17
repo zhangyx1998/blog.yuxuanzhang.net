@@ -1,0 +1,9 @@
+{% if site.crosslinks %}
+<hr>
+<h5>RELATED SITES</h5>
+<ul class="list-inline">
+  {% for friend in site.crosslinks %}
+  <li><a href="{{friend.href}}">{{friend.title}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}

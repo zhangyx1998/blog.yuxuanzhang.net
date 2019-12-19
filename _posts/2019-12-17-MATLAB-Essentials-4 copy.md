@@ -9,10 +9,10 @@ tags:
     - PHYSICS
 ---
 
-### Index of _Matlab Essentials_
+## Index of _Matlab Essentials_
 * [Matlab基本语法和数据结构](./MATLAB-Essentials-1.html)
-* [Matlab常用函数](./MATLAB-Essentials-2.html)
-* [Matlab常用运算函数](./MATLAB-Essentials-3.html)
+* [Matlab常用绘图函数](./MATLAB-Essentials-2.html)
+* [Matlab解物理问题的常用算法](./MATLAB-Essentials-3.html)
 * **Matlab具体应用(本文)**
 
 

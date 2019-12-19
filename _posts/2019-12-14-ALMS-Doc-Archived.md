@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ATLAS Lab Monitor System"
+title:  "ATLAS Lab Monitor System Documentations Archived"
 subtitle:   "A monitoring system developed for long-exposure experiment of the next-gen LHC sensor."
 # header-img: "img/xxx.jpg"
 date:   2019-12-14 00:00:00 +0800
@@ -33,25 +33,19 @@ tags:
 
 Notice: all source codes should be arranged exactly the same as what it was if you want to launch it normally. And if you use different serial port for arduino, or you make a different MySQL configuration, please change the settings at config.sh
 
-Also: You may see the demo [HERE](http://alms.yuxuanzhang.net).
-
-***
+Also: You may see the demo [HERE](http://alms.yuxuanzhang.net "ATLAS Lab Monitor System").
 
 ## Upgrade Notes
 
-#### V5.02
+### V5.02
 
 + Bug_Fix: Log Table Cursor Conflict
 
-***
+### V5.01
 
-#### V5.01
++ Chip_Data webpage is now available at [alms.yuxuanzhang.net/chipdata.html](http://alms.yuxuanzhang.net/chipdata.html "alms.yuxuanzhang.net/chipdata.html")
 
-+ Chip_Data webpage is now available at yuxuanzhang.net/chipdata.html
-
-***
-
-#### V5.00
+### V5.00
 
 + Current developing version
 + Control Service Online
@@ -61,103 +55,71 @@ Also: You may see the demo [HERE](http://alms.yuxuanzhang.net).
 + Chip Database online
 + Easier Installation
 
-***
-
-#### V4.19
+### V4.19
 
 + Real environment deploy
 + Bug fix (minus values)
 + Git branches generated:`matster`,`release`,`dev`
 
-***
-
-#### V4.18
+### V4.18
 
 + Log table filter is plugged into the webpage
 
-***
-
-#### V4.17
+### V4.17
 
 + Github Compatiblity modification & test
 
-***
-
-#### V4.16
+### V4.16
 
 + Webpage Generator(WPG) logic improvement
 + Version Control(VER) is now able to automatically detect upgrade notes and add them to Log table.
 
-***
-
-#### V4.15
+### V4.15
 
 + HTML CSS style unify. (Whole Site)
 
-***
-
-#### V4.14
+### V4.14
 
 + Webpage HTML5 Animation Improvement.
 
-***
-
-#### V4.13
+### V4.13
 
 + ZChart.js logic correction (Minor Bug Fix).
 
-***
-
-#### V4.12
+### V4.12
 
 + Paragraph line hight adjustment.
 
-***
-
-#### V4.11
+### V4.11
 
 + Performance Enhancement.
 + Stability Improvement.
 
-***
-
-#### V4.10
+### V4.10
 
 + Webpage Restructure. Data Blocks Added to the page.
 
-***
-
-#### V4.09
+### V4.09
 
 + Appearence Improvement.
 
-***
-
-#### V4.08
+### V4.08
 
 + Font Face Unite.
 
-***
-
-#### V4.07
+### V4.07
 
 + Appearence Improvement.
 
-***
-
-#### V4.06
+### V4.06
 
 + Appearance Improvement (Half-shown lines are now half-transparent)
 
-***
-
-#### V4.05
+### V4.05
 
 + Fixed Font Size Problems in Linux System.(HTML page)
 
-***
-
-#### V4.04
+### V4.04
 
 + Minor Bug Fix
 + Add API "Onfocus" to ZChart: 
@@ -171,66 +133,46 @@ Also: You may see the demo [HERE](http://alms.yuxuanzhang.net).
 + 
 + Using API "Onfocus" to highlight the lines selected. (UX Improvement)
 
-***
-
-#### V4.03
+### V4.03
 
 + Minor Bug Fix
 + You can now highlight a specific line by floating your mouse on its corresponding button. (ZChart Feature Upgrade using ZButton API)
 
-***
-
-#### V4.02
+### V4.02
 
 + Logic problem emergency fix.
 
-***
-
-#### V4.01
+### V4.01
 
 + Color Composition Adjustment. UX design upgrade.
 
-***
-
-#### V4.00
+### V4.00
 
 + Modulize of the webpage has been completed, and the performance of the webpage has been dramatically improved thanks to "Step-by-step" loading strategy. Code reusability has also been grately improved.
 
-***
-
-#### V3.02
+### V3.02
 
 + ZButton.js is now ready! This is a plugin that can insert buttons easily into canvas objects, and have intractive API to communicate with.
 
 + By using ZButton.js, we can now easily create clickable banners and control the display of every single data set.
 
-***
-
-#### V3.01
+### V3.01
 
 + Minor bug fix and performance improvement.
 
-***
-
-#### V3.00
+### V3.00
 
 + All raw html files are renamed to .html.zsc.
 
-***
-
-#### V2.01
+### V2.01
 
 + Version_Control(VER) is separated from Arduino_IO(AIO). Version_Control Service will automatically add log to LOG table should any upgrade be detected.
 
-***
-
-#### V2.00
+### V2.00
 
 + The WebPage is now ready to use. The data from ARDUINO will be automatically refreshed every 1 minute. And the demo website is now online, available at "yuxuanzhang.net". We use ssh to mirror the contents of the website so that the server syncs everything on the target folder of the lab computer.
 
-***
-
-#### V1.01
+### V1.01
 
 + Bug fix.
 >	Timestamp string interpuration error. E.g. timestamp starting with "08" was mistakenly interpurated as Octal.

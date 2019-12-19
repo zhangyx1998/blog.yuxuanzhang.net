@@ -83,14 +83,6 @@ _underline_
 ~~strike through~~
 ```
 ~~strike through~~
-
-<br>
-
-```md
-::Highlight::
-```
-::Highlight::
-
 <br>
 
 ```md
@@ -172,12 +164,13 @@ or
 | Table  |            |             |
 | :----: | :--------- | ----------: |
 | Center | Align Left | Align Right |
-| Text   | Text       | Text       |
+| Text   | Text       | Text        |
 ```
-| Table  | | |
-| :-----:| :--------- | ----------: |
+
+| Table  |            |             |
+| :----: | :--------- | ----------: |
 | Center | Align Left | Align Right |
-| Text | Text | Text |
+| Text   | Text       | Text        |
 
 <br>
 

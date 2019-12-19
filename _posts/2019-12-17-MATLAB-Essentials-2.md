@@ -12,8 +12,9 @@ tags:
 ## Index of _Matlab Essentials_
 * [Matlab基本语法和数据结构](./MATLAB-Essentials-1.html)
 * **Matlab常用绘图函数(本文)**
-* [Matlab解物理问题的常用算法](./MATLAB-Essentials-3.html)
-* [Matlab具体应用](./MATLAB-Essentials-4.html)
+* [Matlab符号化系统](./MATLAB-Essentials-3.html)
+* [Matlab解物理问题的常用算法](./MATLAB-Essentials-4.html)
+* [Matlab具体应用](./MATLAB-Essentials-5.html)
 
 ## 基本概念
 
@@ -158,7 +159,15 @@ Matlab绘图窗口和 _图像_ 的样式都有极大的自定义空间, 几乎�
 > avg = (z1+z2)./2;
 > plot3(x(cr), y(cr), avg(cr),'*k');
 > ```
-> ![应用: 绘制两曲面相交区域](/resources/matlab/fig_2_5.png)
+> ![应用: 绘制两曲面相交区域](/resources/matlab/fig_2_5.png)'
+
+## 物理场可视化
+
+主要手段:
+* 等高线(等势面/等势线)
+* 流线图
+
+### 
 
 ## 进阶: 使用 `colormap()` 函数自定义 _图像_ 色彩
 

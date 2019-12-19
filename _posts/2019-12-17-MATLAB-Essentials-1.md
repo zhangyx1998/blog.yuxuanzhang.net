@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "MATLAB Essentials 1"
-subtitle:   "基本语法和数据结构"
+subtitle:   "Matlab基本语法和数据结构"
 header-img: "resources/matlab.png"
 date:   2019-12-17 15:30:00 +0800
 tags:
@@ -10,13 +10,14 @@ tags:
 ---
 
 ### Index of _Matlab Essentials_
-* **基本语法和数据结构(本文)**
-* [Matlab常用函数](./MATLAB-Essentials-2.html)
-* [具体应用](./MATLAB-Essentials-3.html)
+* **Matlab基本语法和数据结构(本文)**
+* [Matlab常用绘图函数](./MATLAB-Essentials-2.html)
+* [Matlab常用运算函数](./MATLAB-Essentials-3.html)
+* [Matlab具体应用](./MATLAB-Essentials-4.html)
 
 ### Matlab 的变量
 
-与 Javascript 类似, Matlab 变量使用前不需要声明, 第一次向变量赋值的同时变量就被创建. Matlab 的所有变量均为矩阵变量, 如果定义了一维常数变量 `a = 1` , 则等同于定义了1*1的矩阵变量 `a = [1]` .
+与 Javascript 类似, Matlab 变量使用前不需要声明, 第一次向变量赋值的同时变量就被创建. Matlab 编程中用到的的绝大部分变量是矩阵变量, 如果定义了一维常数变量 `a = 1` , 则等同于定义了1*1的矩阵变量 `a = [1]` .
 
 声明一个行矩阵: 
 ```matlab
@@ -44,6 +45,8 @@ a =
 ```
 
 需要注意的是, 对于复矩阵 `A` , `A'` 为取共轭运算, `A.'` 为转置操作.
+
+### Cell Array (元阵列)
 
 ### Matlab 基本运算符
 
@@ -97,17 +100,17 @@ A / B = A * inv(B)
 ### 初始化矩阵的几种命令
 
 * `zeros/ones` 以 0/1 初始化指定大小的矩阵
-```matlab
->> zeros(2,2)
-ans =
-     0     0
-     0     0
+     ```matlab
+     >> zeros(2,2)
+     ans =
+          0     0
+          0     0
 
->> ones(2,2)
-ans =
-     1     1
-     1     1
-```
+     >> ones(2,2)
+     ans =
+          1     1
+          1     1
+     ```
 
 * `eye(n)` 建立 n*n 的单位矩阵
 * `rand(m,n)` 生成 m*n 的随机数矩阵
@@ -122,17 +125,41 @@ ans =
 
 ### 列向量拓展为数据网格的方法
 
-如果已有两个行向量 x y, 则可以通过这两个行向量张成一个二维数据网格. 事实上这个操作就是将 x 按列复制, 将 y 按行复制.
+如果已有两个行向量 `x` `y` , 则可以通过这两个行向量张成一个二维数据网格. 事实上这个操作就是将 `x` 按列复制, 将 `y` 按行复制.
 ```matlab
-x
-[X,Y]=meshgrid(x,y);
+>> x = [1,3,5]; y = [2,4,6];
+>> [ X , Y ] = meshgrid(x, y)
+X =
+     1     3     5
+     1     3     5
+     1     3     5
+Y =
+     2     2     2
+     4     4     4
+     6     6     6
 ```
 
-### 结构化数据
+### 结构变量
 
 类似于许多语言的 `structure` 结构, Matlab 也可以定义结构化数据.
+```matlab
+>> s = struct('strings',{'hello','yes'},'lengths',[5 3])
+s = 
+  struct with fields:
+    strings: {'hello'  'yes'}
+    lengths: [5 3]
+>> s.lengths
+ans =
+     5     3
+>> s.strings
+ans =
+  1×2 cell array
+    {'hello'}    {'yes'}
+```
 
+对于已经定义好的结构变量, 如果需要在变量中创建新的, 可以直接通过
 
+如上所示, 变量 `s` 被初始化为带有两个字段的结构变量, 在必要时还可以将结构变量作为矩阵元素使用.
 
 ### 矩阵元素标识(选中)
 

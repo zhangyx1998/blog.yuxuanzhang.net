@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "MATLAB Essentials 3"
-subtitle:   "Matlab常用运算函数"
+title:  "MATLAB Essentials 4"
+subtitle:   "Matlab具体应用"
 header-img: "resources/matlab.png"
 date:   2019-12-17 17:30:00 +0800
 tags:
@@ -12,7 +12,7 @@ tags:
 ### Index of _Matlab Essentials_
 * [Matlab基本语法和数据结构](./MATLAB-Essentials-1.html)
 * [Matlab常用函数](./MATLAB-Essentials-2.html)
-* **Matlab常用运算函数(本文)**
-* [Matlab具体应用](./MATLAB-Essentials-4.html)
+* [Matlab常用运算函数](./MATLAB-Essentials-3.html)
+* **Matlab具体应用(本文)**
 
 

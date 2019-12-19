@@ -9,6 +9,10 @@ tags:
     - Cheatsheet
 ---
 
+This post shows the tricks to format your document by markdown language. It is rendered by Jekyll.
+
+Note that the style of each type depends on your css settings, and they will look different from this post, and you should try to define your own style.
+
 <br>
 
 ```md

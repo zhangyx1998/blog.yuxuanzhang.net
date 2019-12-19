@@ -2,7 +2,7 @@
 layout: post
 title:  "Markdown cheatsheet"
 subtitle:   "Basic usages of markdown language"
-header-img: "img/markdown.png"
+header-img: "resources/markdown.png"
 date:   2019-12-13 00:08:00 +0800
 tags:
     - Markdown
@@ -80,9 +80,9 @@ _underline_
 <br>
 
 ```md
--strike through-
+~~strike through~~
 ```
--strike through-
+~~strike through~~
 
 <br>
 

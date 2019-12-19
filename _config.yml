@@ -42,7 +42,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
 
-paginate: 5 # Number of articles shown on one single page
+paginate: 12 # Number of articles shown on one single page
 
 
 # Sidebar settings

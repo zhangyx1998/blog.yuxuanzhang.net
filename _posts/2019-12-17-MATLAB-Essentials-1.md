@@ -15,6 +15,7 @@ tags:
 * [Matlab符号化系统](./MATLAB-Essentials-3.html)
 * [Matlab解物理问题的常用算法](./MATLAB-Essentials-4.html)
 * [Matlab具体应用](./MATLAB-Essentials-5.html)
+* [疑难问题和感想](./MATLAB-Related.html)
 
 ## Matlab矩阵变量
 

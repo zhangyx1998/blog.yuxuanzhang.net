@@ -31,7 +31,7 @@ Matlab绘图窗口和 _图像_ 的样式都有极大的自定义空间, 几乎�
 |`figure`   | 弹出(新建)绘图窗口, 并返回该窗口句柄 |
 |`figure(n)`| 新建(或者切换到)编号为 `n` 的绘图窗口, 并返回该窗口句柄 |
 |`subplot(m,n,P)`| 将当前窗口分成 `m` 行 × `n` 列, 在第 `P` 区作图, 子 _图像_ 按照先行后列的方式编号 |
-|`subplot(P)`| 在当前窗口的第 `P` 区作图. 需要注意的是 `P` 可以是一个向量, 例如 `P = [1,2]` 将会将第一第二个自 _图像_ 合并. 同时 `subplot()` 函数会返回当前 _图像_ 句柄 |
+|`subplot(P)`| 在当前窗口的第 `P` 区作图. 需要注意的是 `P` 可以是一个向量, 例如 `P = [1,2]` 将会将第一第二个子 _图像_ 合并. 同时 `subplot()` 函数会返回当前 _图像_ 句柄 |
 |`clf`      | 清空当前 窗口 |
 |`cla`      | 清空当前 _图像_ |
 |`hold on`  | 绘制新对象时保留画布上的旧 _图像_  |
@@ -53,8 +53,8 @@ Matlab绘图窗口和 _图像_ 的样式都有极大的自定义空间, 几乎�
 
 | 变量 | 内容 |
 | :-: | :--  |
-|`gca`       | _**G**et handle of **c**urrent **a**xis._<br>返回当前**_图像_**句柄. |
-|`gcf`       | _**G**et handle of **c**urrent **f**igure._<br>返回当前**窗口**句柄. |
+|`gca`       | _**G**et handle of **c**urrent **a**xis._<br>获取当前**_图像_**句柄. |
+|`gcf`       | _**G**et handle of **c**urrent **f**igure._<br>获取当前**窗口**句柄. |
 |`figure(n)` | 新建(或者切换到)编号为 `n` 的绘图窗口, 并返回该窗口句柄. |
 |`hold on`   | 绘制新对象时**保留**画布上的旧 _图像_  |
 |`hold off`  | 绘制新对象时**清除**画布上的旧 _图像_  |
@@ -88,15 +88,19 @@ Matlab绘图窗口和 _图像_ 的样式都有极大的自定义空间, 几乎�
 > ```
 > ![示例: 通过隐函数方程画图](/resources/matlab/fig_2_2.png)
 
+## 进阶: 使用 `colormap()` 函数自定义 _图像_ 色彩
+
+> 略, 稍后补充
+
 ## 三维 _图像_ 绘制
 
 | 函数 | 功能 |
 | :-: | :--  |
-｜`mesh()`   | 绘制网线图           ｜
-｜`meshz()`  | 绘制网线图再加基准平面 ｜
-｜`surfc()`  | 绘制表面图再加光照    ｜
-｜`meshc()`  | 绘制网线图再加等高线   ｜
-｜`surf()`   | 绘制表面图           ｜
+|`mesh()`   | 绘制网线图           |
+|`meshz()`  | 绘制网线图再加基准平面 |
+|`surfc()`  | 绘制表面图再加光照    |
+|`meshc()`  | 绘制网线图再加等高线   |
+|`surf()`   | 绘制表面图           |
 
 > 示例: 几种不同的三维画图指令应用
 > ```matlab
@@ -159,19 +163,97 @@ Matlab绘图窗口和 _图像_ 的样式都有极大的自定义空间, 几乎�
 > avg = (z1+z2)./2;
 > plot3(x(cr), y(cr), avg(cr),'*k');
 > ```
-> ![应用: 绘制两曲面相交区域](/resources/matlab/fig_2_5.png)'
+> ![应用: 绘制两曲面相交区域](/resources/matlab/fig_2_5.png)
 
 ## 物理场可视化
 
-主要手段:
-* 等高线(等势面/等势线)
-* 流线图
+### **标量场可视化:**
 
-### 
+> 主要手段是绘制等值线/等值面
+> 
+> (等高线/等势面/等势线/切线/法线)
 
-## 进阶: 使用 `colormap()` 函数自定义 _图像_ 色彩
+  1. `contour()` 系列函数: 针对二维函数 `Z = f(X,Y)` 进行操作.
+  
+      | 函数 | 功能 |
+      | :-: | :--- |
+      |`[C,H] = contour(Z,[N])`<br>`[C,H] = contour(X,Y,Z)`| 绘制 `meshgrid X,Y` 定义的函数 `Z` 的等值线, `N` 设定等值线的根数.|
+      |`[C,H] = contourf()`| 与 `contour()` 用法基本一致, 绘制等值线并在等值线之间填充颜色 |
+      |`[C,H] = contour3()`| 与 `contour()` 用法基本一致, 但是等值线将被绘制在三维空间上 |
+      |`C = contourc()`| 仅计算并返回等值线点集, 不进行绘制 |
 
-略, 稍后补充
+      _其中返回值 `C` 是等值线点集, 返回值 `H` 是对象句柄数组_
+
+      > 例: contour绘制peaks
+      > ```matlab
+      > subplot(2,2,1);
+      > mesh(peaks);             % mesh
+      > 
+      > subplot(2,2,2);
+      > contour3(peaks);         % 立体等值线
+      > 
+      > subplot(2,2,3);
+      > contour(peaks);          % 平面等值线
+      > 
+      > subplot(2,2,4);
+      > [c,h] = contourf(peaks); % 填色等值线 
+      > clabel(c,h);             % 标记等值线 
+      > colorbar;
+      > ```
+      > ![例: contour绘制peaks](/resources/matlab/fig_2_6.png)
+
+  2. `contourslice()` 函数: 将三维标量场切片并分层绘制等值线.
+
+      > 例: contourslice绘制flow场剖面等值线
+      > ```matlab
+      > [X,Y,Z,V] = flow;          % 提取数据
+      > Sx=1:9; Sy=[]; Sz=0;       % 选取剖面位置
+      > cvals = linspace(-8,2,10); % 取10条等值线
+      > contourslice(X,Y,Z,V,Sx,Sy,Sz,cvals);
+      > axis([0,10,-3,3,-3,3]);
+      > daspect([1,1,1]);  % 坐标轴的纵横比
+      > campos([0,-20,7]); % 设置相机的位置
+      > box on             % 显示坐标盒子
+      > ```
+      > ![例: contourslice绘制flow场剖面等值线](/resources/matlab/fig_2_7.png)
+
+  3. `slice()` 函数: 绘制三维标量场剖面颜色图
+
+      > 例: contourslice绘制flow场剖面等值线
+      > ```matlab
+      > [x,y,z] = meshgrid(-2:.2:2);
+      > v=x.*exp(-x.^2-y.^2-z.^2); % 生成三维标量场
+      > slice(v,[5 15],15,10);     % 绘制剖面颜色图
+      > axis([0 21 0 21 0 21]);
+      > hold on
+      > colorbar('horiz');
+      > colorbar('vert');
+      > view([-25 65]);
+      > ```
+      > ![例: contourslice绘制flow场剖面等值线](/resources/matlab/fig_2_8.png)
+
+### **矢量场可视化:**
+
+> 主要手段是绘制流线图/箭头阵列
+
+| 函数 | 功能 |
+| :-- | :--- |
+|`quiver([X,Y,]U,V)`| 绘制 `meshgrid X,Y` 定义的二维矢量场 `[U,V]` 的箭头阵列 |
+|`quiver3([X,Y,Z,]U,V,W)`| 绘制 `meshgrid X,Y,Z` 定义的三维矢量场 `[U,V,W]` 的箭头阵列 |
+|`streamline(`<br>`[X,Y,Z,]`<br>`U,V,W,`<br>`STARTX,STARTY,STARTZ`<br>`)`| 绘制 `meshgrid X,Y,Z` 或 `X,Y` 定义的二维或三维矢量场 `[U,V,W]` 或 `[U,V]` 的流线图<br>其中 `meshgrid` 类型的 `START*` 定义流线图追踪的起始点. |
+
+> 例: 使用 streamline 和 quiver 共同表现二维矢量场
+> ```matlab
+> hold on
+> [x,y] = meshgrid(0:0.1:1,0:0.1:1);
+> u=x; v=-y;          % 生成矢量场
+> startx = 0.1:0.1:1; % 设定流线起点阵列
+> starty = ones(size(startx));
+> streamline(x,y,u,v,startx,starty);
+>                     % 绘制流线图
+> quiver(x,y,u,v);    % 绘制箭头图
+> ```
+> ![例: 使用 streamline 和 quiver 共同表现二维矢量场](/resources/matlab/fig_2_9.png)
 
 ## 附: 使用 `help` 命令熟悉函数功能
 
@@ -180,42 +262,19 @@ Matlab绘图窗口和 _图像_ 的样式都有极大的自定义空间, 几乎�
 实际上, Matlab `help` 命令足以解决绝大多数问题, 熟练使用 `help` 命令可以大大减少上网搜索浪费的时间.
 
 ```matlab
->> help colormap
- colormap Color look-up table.
-    colormap(MAP) sets the current figure's colormap to MAP.
-    colormap('default') sets the current figure's colormap to
-    the root's default, whose setting is PARULA.
-    MAP = colormap returns the three-column matrix of RGB triplets defining 
-    the colormap for the current figure.
-    colormap(FIG,...) sets the colormap for the figure specified by FIG.
-    colormap(AX,...) sets the colormap for the axes specified by AX. 
-    Each axes within a figure can have a unique colormap. After you set
-    an axes colormap, changing the figure colormap does not affect the axes.
-    MAP = colormap(FIG) returns the colormap for the figure specified by FIG.
-    MAP = colormap(AX) returns the colormap for the axes specified by AX.
+>> help linspace
+ linspace Linearly spaced vector.
+    linspace(X1, X2) generates a row vector of 100 linearly
+    equally spaced points between X1 and X2.
  
-    A color map matrix may have any number of rows, but it must have
-    exactly 3 columns.  Each row is interpreted as a color, with the
-    first element specifying the intensity of red light, the second
-    green, and the third blue.  Color intensity can be specified on the
-    interval 0.0 to 1.0.
-    For example, [0 0 0] is black, [1 1 1] is white,
-    [1 0 0] is pure red, [.5 .5 .5] is gray, and
-    [127/255 1 212/255] is aquamarine.
+    linspace(X1, X2, N) generates N points between X1 and X2.
+    For N = 1, linspace returns X2.
  
-    Graphics objects that use pseudocolor  -- SURFACE and PATCH objects,
-    which are created by the functions MESH, SURF, and PCOLOR -- map
-    a color matrix, C, whose values are in the range [Cmin, Cmax],
-    to an array of indices, k, in the range [1, m].
-    The values of Cmin and Cmax are either min(min(C)) and max(max(C)),
-    or are specified by CAXIS.  The mapping is linear, with Cmin
-    mapping to index 1 and Cmax mapping to index m.  The indices are
-    then used with the colormap to determine the color associated
-    with each matrix element.  See CAXIS for details.
+    Class support for inputs X1,X2:
+       float: double, single
  
-    Type HELP GRAPH3D to see a number of useful colormaps.
- 
-    colormap is a function that sets the Colormap property of a figure.
- 
-    See also hsv, caxis, spinmap, brighten, rgbplot, figure, colormapeditor.
+    See also logspace, colon.
+
+    Reference page for linspace
+    Other functions named linspace
 ```

@@ -180,7 +180,7 @@ QUALIFY PROC
     XOR  BX, BX
 QF_LOOP:
     MOV  CL, Sensor[BX]
-    RCR  AL
+    SHR  AL
     JNC  QF_NEXT
     INC  CL
     MOV  Sensor[BX], CL

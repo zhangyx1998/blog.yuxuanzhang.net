@@ -48,7 +48,7 @@ Matlab绘图窗口和 _图像_ 的样式都有极大的自定义空间, 几乎�
 | :-: | :-- |
 |`axis equal`   | 令当前 _图像_ 横纵坐标等比 |
 |`axis([x1,x2,y1,y2,z1,z2])`| 设定 _图像_ 显示范围 |
-|`set(handle,'Property',balue)`| 设置特定对象的特定样式 |
+|`set(handle,'Property',value)`| 设置特定对象的特定样式 |
 
 ## 绘图相关的环境变量
 

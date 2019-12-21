@@ -157,14 +157,14 @@ MC_ALERT:
     TEST AL, 0FFH
     JNZ  MC_FINAL
     ; 计数, 控制灯闪烁
-    MOV  BX, WORD PTR Counter
-    INC  BX
-    MOV  WORD PTR Counter, BX
-    MOV  BX, WORD PTR Counter[1]
-    ADC  BX, 0
-    MOV  WORD PTR Counter[1], BX
-    AND  BX, 8000H
-    MOV  AL, BL
+    MOV  AX, WORD PTR Counter
+    INC  AX
+    MOV  WORD PTR Counter, AX
+    MOV  AX, WORD PTR Counter[1]
+    ADC  AX, 0
+    MOV  WORD PTR Counter[1], AX
+    AND  AX, 8000H
+    MOV  AL, AH
     OR   AL, 01000000B ; SET PC6 = High
     MOV  DX, C8255_C
     OUT  DX, AL

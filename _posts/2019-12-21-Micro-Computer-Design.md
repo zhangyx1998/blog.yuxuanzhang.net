@@ -134,7 +134,7 @@ MC_CHECK:
     MOV  DX, C8255_A
     IN   AL, DX
     CALL QUALIFY
-    CMP  AL, 0
+    CMP  AH, 0
     JE   MC_CHECK
 
     ; 为8253方波发生器赋频率值
@@ -172,8 +172,27 @@ ENDP
 
 QUALIFY PROC
     ; AL存放当前8个传感器的状态
-    ; 子程序结束后 AL = 0 表示不符合报警条件
-    ;            AL > 0 表示报警
+    ; 子程序结束后 AH = 0 表示不符合报警条件
+    ;            AH > 0 表示报警
+    PUSH BX
+    PUSH CX
+    XOR  AH, AH
+    XOR  BX, BX
+QF_LOOP:
+    MOV  CL, Sensor[BX]
+    RCR  AL
+    JNC  QF_NEXT
+    INC  CL
+    MOV  Sensor[BX], CL
+QF_NEXT:
+    ADD  CL, 0FFH - 5 + 1
+    ADC  AH, 0
+    INC  BX
+    CMP  BX, 8
+    JL   QF_LOOP
+QF_FINAL:
+    POP  CX
+    POP  BX
     RET
 ENDP
 

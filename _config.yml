@@ -44,6 +44,10 @@ plugins:
 
 paginate: 12 # Number of articles shown on one single page
 
+highlighter: rouge
+highlight:
+    enable: true
+    line_number: true
 
 # Sidebar settings
 sidebar: true

@@ -7,6 +7,7 @@ date:   2019-12-17 16:30:00 +0800
 tags:
     - MATLAB
     - PHYSICS
+    - MyCourses
 ---
 
 ## Index of _Matlab Essentials_

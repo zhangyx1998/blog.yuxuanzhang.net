@@ -28,9 +28,9 @@ tags:
 
 ### 程序的总体架构
 
-1. 程序需要两个循环, 第一个循环用来等待 `PC0` 端输入低电平, 第二个循环作为 **`主循环`**, 监控 `8` 个传感器的状态和键盘按键的状态, 并按要求输出警报信号.
+1. 程序需要两个循环, 第一个循环(**`等待循环`**)用来等待 `PC0` 端输入低电平, 第二个循环作为 **`主循环`**, 监控 `8` 个传感器的状态和键盘按键的状态, 并按要求输出警报信号.
 
-2. 由于等待循环需要判断 `8255` 的 `PC0` 电平, 所以在进入 **`等待循环`** 前就应该完成 `8255` 和 `8253` 芯片的初始化.
+2. 由于 **`等待循环`** 需要判断 `8255` 的 `PC0` 电平, 所以在进入 **`等待循环`** 前就应该完成 `8255` 和 `8253` 芯片的初始化.
     > 根据以上两条, 我们需要:
     >
     > ```nasm
@@ -48,12 +48,12 @@ tags:
     >
     > ```nasm
     > DSEG SEGMENT
-    >   Sensor  DB 0 DUP 8
+    >   Sensor  DB 8 DUP 0
     >           ; 每个Byte对应一个传感器,
     >           ; 如果当前循环传感器触发, 相应Byte + 1,
     >           ; 如果传感器没有触发, 相应Byte清零,
     >           ; 任意Byte>=5 触发警报.
-    >   Counter DW 0
+    >   Counter DD 0
     >           ; 循环计数器.
     > DSEG ENDS
     > ```
@@ -65,62 +65,134 @@ tags:
 ## 完整的汇编代码
 
 ```nasm
-C255_1 equ 380H
-C255_2 equ 381H
-C255_3 equ 382H
-C255_S equ 383H
-C253_1 equ 384H
-C253_2 equ 385H
-C253_3 equ 386H
-C253_S equ 387H
-REPT_C equ 2000
+; 8255芯片地址
+C8255_A EQU 380H
+C8255_B EQU 381H
+C8255_C EQU 382H
+C8255_S EQU 383H
+; 8253芯片地址
+C8253_0 EQU 384H
+C8253_1 EQU 385H
+C8253_2 EQU 386H
+C8253_S EQU 387H
+; 8253 产生 1kHz 脉冲对应的计数器值
+REP_C   EQU 2000
 
 DSEG SEGMENT
-  Sensor  DB 0 DUP 8
+  Sensor  DB 8 DUP (0)
           ; 每个Byte对应一个传感器,
           ; 如果当前循环传感器触发, 相应Byte + 1,
           ; 如果传感器没有触发, 相应Byte清零,
           ; 任意Byte>=5 触发警报.
-  Counter DW 0
+  Counter DD 0
           ; 循环计数器.
 DSEG ENDS
 
 SSEG SEGMENT
-    DB
-SSEG 
+    DB ?
+SSEG ENDS
 
 CODE SEGMENT
-    ASSUME cs:CODE, ds:DSEG, es:DSEG, ss:SSEG
+    ASSUME CS:CODE, DS:DSEG, ES:DSEG, SS:SSEG
 START:
-    mov  ax, DSEG
-    mov  ds, ax
-    mov  es, ax
-    mov  ax, SSEG
-    mov  ss, ax
-
-    call INIT
-    call WAIT_CIRCLE
-    call MAIN_CIRCLE
+    MOV  AX, DSEG
+    MOV  DS, AX
+    MOV  ES, AX
+    MOV  AX, SSEG
+    MOV  SS, AX
+    ; 以下为主要程序逻辑
+    CALL INIT
+    CALL WAIT_CIRCLE
+    CALL MAIN_CIRCLE
+; EXIT事实上永远不会执行
+EXIT:
+    MOV  AX, 4C00H
+    INT  21H
 
 INIT PROC
-    mov  dx, C255_S
-    mov  al, 00000000B
-    out  dx, al
-    mov  dx, C253_S
-    mov  al, 00000000B
-    out  dx, al
-    ret
+    MOV  DX, C8255_S
+    MOV  AL, 10010001B
+    OUT  DX, AL
+    MOV  DX, C8253_S
+    MOV  AL, 00110110B ; 0组 先低后高 方式3 二进制
+    OUT  DX, AL
+    RET
 ENDP
 
 WAIT_CIRCLE PROC
-    
-    ret
+    MOV  DX, C8255_C
+WC_LOOP:
+    IN   AL, DX
+    AND  AL, 00000001B ; 滤出PC0
+    JNZ  L_WC
+    RET
 ENDP
 
 MAIN_CIRCLE PROC
-    
-    ret
+; 检测循环
+MC_CHECK:
+    MOV  DX, C8255_A
+    IN   AL, DX
+    CALL QUALIFY
+    CMP  AL, 0
+    JE   MC_CHECK
+
+    ; 为8253方波发生器赋频率值
+    MOV  DX, C8253_0
+    MOV  AX, REP_C
+    OUT  DX, AL
+    MOV  AL, AH
+    OUT  DX, AL
+
+; 警报循环
+MC_ALERT:
+    ; 检测键盘按键是否按下
+    MOV  AH, 08H
+    INT  21H
+    TEST AL, 0FFH
+    JNZ  MC_FINAL
+    ; 计数, 控制灯闪烁
+    MOV  BX, WORD PTR Counter
+    INC  BX
+    MOV  WORD PTR Counter, BX
+    MOV  BX, WORD PTR Counter[1]
+    ADC  BX, 0
+    MOV  WORD PTR Counter[1], BX
+    AND  BX, 8000H
+    MOV  AL, BL
+    MOV  DX, C8255_C
+    OUT  DX, AL
+    JMP  MC_ALERT
+; 清空Sensor变量, 关警报, 准备进入下一个检测循环
+MC_FINAL:
+    CALL CLEAR
+    JMP  MC_CHECK
+    RET
 ENDP
+
+QUALIFY PROC
+    ; AL存放当前8个传感器的状态
+    ; 子程序结束后 AL = 0 表示不符合报警条件
+    ;            AL > 0 表示报警
+    RET
+ENDP
+
+CLEAR PROC
+    ; 此函数还应该具备停止扬声器的功能, 但是由于硬件连接无法实现.
+    PUSH CX
+    PUSH BX
+    MOV  CX, 8
+    XOR  BX, BX
+CL_LOOP:
+    MOV  Sensor[BX], 0
+    INC  BX
+    LOOP CL_LOOP
+CL_FINAL:
+    POP  BX
+    POP  CX
+    RET
+ENDP
+
 CODE ENDS
 END START
 ```

@@ -162,7 +162,7 @@ WAIT_CIRCLE PROC
 WC_LOOP:
     IN   AL, DX
     AND  AL, 00000001B ; 滤出PC0
-    JNZ  L_WC
+    JNZ  WC_LOOP
     RET
 ENDP
 

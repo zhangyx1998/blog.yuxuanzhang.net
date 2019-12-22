@@ -44,10 +44,9 @@ plugins:
 
 paginate: 12 # Number of articles shown on one single page
 
+# in terminal, run `rougify list` to get the up-to-date list of
+# supported language for highlighting
 highlighter: rouge
-highlight:
-    enable: true
-    line_number: true
 
 # Sidebar settings
 sidebar: true

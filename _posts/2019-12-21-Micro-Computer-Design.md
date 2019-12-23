@@ -24,7 +24,7 @@ tags:
 
 ![电路图](/resources/microcomputer/circuit_design.svg)
 
-## 地址验证:
+### 地址验证:
 
 * `8255` 端口地址为 `0380H` ～ `0383H`, 转化为16位二进制, 即:
   

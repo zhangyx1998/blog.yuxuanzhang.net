@@ -11,7 +11,9 @@ tags:
 mathjax: true
 ---
 
-#### 1.12 证明除恒等元外的所有元都是二阶的群是阿贝尔群.
+<span id="1.12"></span>
+
+#### [`1.12`](#1.12) 证明除恒等元外的所有元都是二阶的群是阿贝尔群.
 > `证明:`
 > 
 > 若:
@@ -37,7 +39,9 @@ mathjax: true
 > 
 > `原命题得证`
 
-#### 1.14 证明每个(所有)指数为2的子群是正规子群.
+<span id="1.14"></span>
+
+#### [`1.14`](#1.14) 证明每个(所有)指数为2的子群是正规子群.
 > `证明:`
 >
 > 设群 $G$ 及其子群 $S$ 满足 $g = 2s$, 并设 $X\,\in\,G$ ,则:
@@ -72,7 +76,9 @@ mathjax: true
 > 
 > `原命题得证`
 
-#### 1.15 若 $G = H \otimes K$ 证明:
+<span id="1.15"></span>
+
+#### [`1.15`](#1.15) 若 $G = H \otimes K$ 证明:
 
 1. **商群 $ G / H $ 与 $ K $ 同构**
 > `证明:`
@@ -139,7 +145,9 @@ mathjax: true
 > 
 > `原命题得证`
 
-#### 1.18 证明二阶循环群与四阶循环群同态.
+<span id="1.18"></span>
+
+#### [`1.18`](#1.18) 证明二阶循环群与四阶循环群同态.
 > `证明:`
 >
 > 不失一般性,令
@@ -191,7 +199,9 @@ mathjax: true
 > 
 > `原命题得证`
 
-#### 1.19 在有限群中有一组元的集合 $S$, 对于群乘是封闭的, 试证明集合 $S$ 中必包含单位元及各元的逆元.
+<span id="1.19"></span>
+
+#### [`1.19`](#1.19) 在有限群中有一组元的集合 $S$, 对于群乘是封闭的, 试证明集合 $S$ 中必包含单位元及各元的逆元.
 > `证明:`
 > 
 > 用 $S = \{S_1,S_2,...,S_s\}$ 表示群 $S$.
@@ -250,7 +260,7 @@ mathjax: true
 
 <span id="2.2"></span>
 
-#### 2.2 试证明群 $G$ 中属于同一类的各元的表示矩阵之和, 必与群 $G$ 的一切表示矩阵对易.
+#### [`2.2`](#2.2) 试证明群 $G$ 中属于同一类的各元的表示矩阵之和, 必与群 $G$ 的一切表示矩阵对易.
 > `证明:`
 > 
 > 设群
@@ -284,27 +294,157 @@ mathjax: true
 > 
 > `证毕`
 
-#### 2.10 一个群的两个不等价的不可约表示可以有完全相同的特征标吗?
+<span id="2.10"></span>
+
+#### [`2.10`](#2.10) 一个群的两个不等价的不可约表示可以有完全相同的特征标吗?
 > `解:`
 > 
+> **不能**， 证明如下
+> 
+> 由 `表示的正交性定理`
+> 
+> $$ \sum\limits_{R\in G} D^i(R)^*_{\alpha\gamma}\,D^j(R)_{\beta\delta}
+>    = \delta_{ij}\delta_{\alpha\beta}\delta_{\gamma\delta}\frac{g}{l_j} $$
+> 
+> 可以构造出两个表示的特征标的内积表达式:
+> 
+> 取对角元,即 $\alpha=\gamma, \,\beta=\delta$
+> 
+> $$
+> \sum\limits_{R\in G} D^i(R)^*_{\alpha\alpha}\,D^j(R)_{\beta\beta}
+> =
+> \delta_{ij}\delta_{\alpha\beta}\dfrac{g}{l_j}
+> $$
+> 
+> 将上式对 $\alpha$ 求和, 并调整求和运算顺序
+> 
+> $$
+> \sum\limits_{\alpha}\Big(\sum\limits_{R\in G} D^i(R)^*_{\alpha\alpha}\,D^j(R)_{\beta\beta}\Big)
+> =
+> \sum\limits_{\alpha}\delta_{ij}\delta_{\alpha\beta}\dfrac{g}{l_j}
+> \\
+> \sum\limits_{R\in G}\Big(\sum\limits_{\alpha} D^i(R)^*_{\alpha\alpha}\Big)\,D^j(R)_{\beta\beta}
+> =
+> \delta_{ij}\Big(\sum\limits_{\alpha}\delta_{\alpha\beta}\Big)\dfrac{g}{l_j}
+> \\
+> \sum\limits_{R\in G}\chi^i(R)^*\,D^j(R)_{\beta\beta} =
+> \delta_{ij}\dfrac{g}{l_j}$$
+> 
+> 再对 $\beta$ 求和
+> 
+> $$
+> \sum\limits_{R\in G}\Big(\chi^i(R)^*\,\sum\limits_{\beta}D^j(R)_{\beta\beta}\Big) =
+> \sum\limits_{\beta}\delta_{ij}\dfrac{g}{l_j}
+> $$
+> 
+> 注意到 $\beta$ 共有 $l_j$ 个不同取值
+> 
+> $$
+> \sum\limits_{R\in G}\chi^i(R)^*\,\chi^j(R)\, =
+> \delta_{ij}\,g$$
+> 
+> 如果 $\chi^i(R)$ 和 $\chi^j(R)$ 完全相同, 那么其内积一定大于零 (考虑到类 $E$ 的存在), 即上式中 $i=j$.
+> 
+> 但是 $i=j$ 即两种表示等价, 与原命题冲突, 所以两者特征标不允许完全相同
+> 
+> `证毕`
 
-#### 2.13 用正交法求出三角形对称群 $D_3$ 的特征标表
+```plain
+QUESTION:
+是否可以通过E类的存在证明内积大于零?
+```
+
+<span id="2.13"></span>
+
+#### [`2.13`](#2.13) 用正交法求出三角形对称群 $D_3$ 的特征标表
 > `解:`
 > 
+> 已知 $D_3$ 群有3个类, 所以
+> 
+> $$ l_1^2 + l_2^2 + l_3^2 = 6 \\ [l_1,~l_2,~l_3] = [1,~1,~2]$$
+> 
+> 可以部分地写出特征标表:
+> 
+> $$ \begin{array}{c|c|cc|ccc}
+>    & E & D & F & A & B & C\\\hline
+> D^1& 1 & 1 & 1 & 1 & 1 & 1\\
+> D^2& 1 & a & a & b & b & b\\
+> D^3& 2 & c & c & d & d & d
+> \end{array}$$
+> 
+> 再通过正交性定理和完全性关系的约束条件:
+> 
+> $$\left\{\begin{array}{rcl}
+> (D^1,D^2)=& 1+2a+3b   &= 0\\
+> (D^1,D^3)=& 2+2c+3d   &= 0\\
+> (D^2,D^3)=& 2+2ac+3bd &= 0
+> \end{array}\right.
+> ~~~~\Rightarrow~~~~
+> \left\{\begin{array}{l}
+> a=1\\
+> b=-1\\
+> c=-1\\
+> d=0
+> \end{array}\right.$$
+> 
+> 可以唯一地确定第二行和第三行的特征标:
+> 
+> $$ \begin{array}{c|c|cc|ccc}
+>    & E & D & F & A & B & C\\\hline
+> D^1& 1 & 1 & 1 & 1 & 1 & 1\\
+> D^2& 1 & 1 & 1 &-1 &-1 &-1\\
+> D^3& 2 &-1 &-1 & 0 & 0 & 0
+> \end{array}$$
 
-#### 2.14 试证明下列等式对一切群成立:
+<span id="2.14"></span>
+
+#### [`2.14`](#2.14) 试证明下列等式对一切群成立:
 
 $$\sum\limits_{j=1}^r l_j \chi_{(C)}^j = \left\{\begin{matrix}g&,~when&C=E\\0&,~when&C\neq E\end{matrix}\right.$$
+
 > `证明:`
+> 
+> 从*特征标的完全性关系*出发:
+> 
+> $$
+> \sum\limits_{i=1}^r \chi^i(C_l)^*\,\chi^i(C_m) = \delta_{lm}\dfrac{g}{h_l}
+> $$
+> 
+> 令 $C_l=E$, 则上述等式化为:
+> 
+> $$
+> \sum\limits_{i=1}^r\,l_i\chi^i(C_m) = \delta_{lm}g
+> $$
+> 
+> 其中, $\delta_{lm} = 1$的条件为 $\chi^i(C_l)=\chi^i(C_m)=E$, 
+> 显然与题设的分类条件等价
 > 
 > `等式成立得证`
 
 $$\sum\limits_{C} h_C \chi_{(C)}^j = \left\{\begin{matrix}g&,~when&j=1\\0&,~when&j\neq 1\end{matrix}\right.$$
+
 > `证明:`
+> 
+> 从*特征标的正交性关系*出发:
+> 
+> $$
+> \sum\limits_C h_C\chi^i(C)^*\,\chi^j(C) = \delta_{ij}g
+> $$
+> 
+> 令 $\chi^i(C)=E$, 则上述等式化为:
+> 
+> $$
+> \sum\limits_{C} h_C \chi_{(C)}^j =  = \delta_{ij}g
+> $$
+> 
+> 其中, $\delta_{ig} = 1$的条件为 $\chi^i=\chi^j=E$, 
+> 显然与题设的分类条件等价
 > 
 > `等式成立得证`
 
-#### 2.20 若 $D^i$ 及 $D^j$ 是群 $G$ 的两个不等价的不可约表示, 试证:
+<span id="2.20"></span>
+
+#### [`2.20`](#2.20) 若 $D^i$ 及 $D^j$ 是群 $G$ 的两个不等价的不可约表示, 试证:
 1. 直积表示 $D^i\otimes D^{j*}$ 并不包含恒等表示
     > `证明:`
     > 
@@ -315,23 +455,53 @@ $$\sum\limits_{C} h_C \chi_{(C)}^j = \left\{\begin{matrix}g&,~when&j=1\\0&,~when
     > 
     > `原命题得证`
 
-#### 4.6 写出晶体点群 $C_{2h}$ 及 $D_2$ 的乘法表及其类
+<span id="4.6"></span>
 
-#### 4.8 
+#### [`4.6`](#4.6) 写出晶体点群 $C_{2h}$ 及 $D_2$ 的乘法表及其类.
 
-#### 4.10
+<span id="4.8"></span>
 
-#### 4.11
+#### [`4.8`](#4.8) 找出点群 $C_{3V}$ 的不可约表示矩阵及每一个不可约表示的基函数.
 
-#### 4.14
+<span id="4.10"></span>
 
-#### 3.1
+#### [`4.10`](#4.10) 已知点群 $T$ 的三维表示的基函数是 $x,\,y$ 以及 $z$ . 试构造 $T$ 群的三维表示的表示矩阵.
 
-#### 3.2
+<span id="4.11"></span>
 
-#### 3.5
+#### [`4.11`](#4.11) 证明点群 $D_n$ 是由 $a$ 及 $b$ 两个元生成的, 生成关系是 $a^n=b^n=(ab)^2=E$ , $E$ 是单位元.
 
-#### 3.7
+<span id="4.14"></span>
+
+#### [`4.14`](#4.14) 试证明六角晶系的晶体的电容率张量的形式为 
+
+$$
+\left[\begin{matrix}
+\varepsilon_{\parallel}&0&0\\
+0&\varepsilon_{\perp}&0\\
+0&0&\varepsilon_{\perp}\\
+\end{matrix}\right]
+$$
+
+<center>
+其中 $\varepsilon_{\parallel}$ 及 $\varepsilon_{\perp}$ 分别为平行及垂直于六度轴的分量.
+</center>
+
+<span id="3.1"></span>
+
+#### [`3.1`](#3.1) 试证明: 若有 $$X'_i=\sum\limits_j R_{ij}x_j$$, 则有 $$\dfrac{\partial}{\partial x'_i}=\sum\limits_j R_{ij}\dfrac{\partial}{\partial x_j}$$.
+
+<span id="3.2"></span>
+
+#### [`3.2`](#3.2) 利用式 `3.1-39` 分别算出绕 $x,y,z$ 轴转动 $\phi$ 角的转动矩阵.
+
+<span id="3.5"></span>
+
+#### [`3.5`](#3.5) 试以 $l=1$ 的球鞋函数为基函数, 求出完全转动群的不可约表示 $D^1(\alpha,\beta,\gamma)$ .
+
+<span id="3.7"></span>
+
+#### [`3.7`](#3.7) $l=$ *整数* 时, 证明 $D^1(0,0,\gamma)$ 是对角矩阵.
 
 ***
 

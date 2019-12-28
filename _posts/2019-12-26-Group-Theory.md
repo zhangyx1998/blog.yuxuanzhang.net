@@ -56,6 +56,30 @@ mathjax: true
     > <span id="群表"></span>
     >
     > ![群表](/resources/grouptheory/SVG/GroupChart.svg)
+    >
+    > $$\begin{array}{c|cccccc}
+    >   & E & A & B & C & D & F\\\hline
+    > E & E & A & B & C & D & F\\
+    > A & A & E & D & F & B & C\\
+    > B & B & F & E & D & C & A\\
+    > C & C & D & F & E & A & B\\
+    > D & D & C & A & B & F & E\\
+    > F & F & B & C & A & E & D\\
+    > \end{array}$$
+
+
+    + **几种具体的群**
+    > 
+    > 
+    > 
+    > 
+    > 
+    > 
+    > 
+    > 
+    > 
+    > 
+    > 
     
     <span id="重排列定理"></span>
     + ***重排列定理***

@@ -252,9 +252,9 @@ mathjax: true
 >  
 >    $$S_k\cdot(S_2\cdot S_2\cdot...\cdot S_{k-1}\cdot S_{k+1}> \cdot...\cdot S_s) = E$$
 >  
->    $$S_1\cdot S_2\cdot...\cdot S_{k-1}\cdot S_{k+1}\cdot...\cdot S_s= > S_k^{-1} \neq S_k$$
+>    $$S_1\cdot S_2\cdot...\cdot S_{k-1}\cdot S_{k+1}\cdot...\cdot S_s= > S_k^{-1} \neq S_k$$≈
 >    
->    将 $S_k$ 从上述连乘序列中剔除, 我们就得到第一种情况,从而证明了任意的群元都有对应的> 逆元.\\
+>    将 $S_k$ 从上述连乘序列中剔除, 我们就得到第一种情况,从而证明了任意的群元都有对应的逆元.
 > 
 > `综上,原命题得证`
 
@@ -452,7 +452,7 @@ $$\sum\limits_{C} h_C \chi_{(C)}^j = \left\{\begin{matrix}g&,~when&j=1\\0&,~when
     > 
     > $$\chi(R) = \chi^i(R)\,\chi^{j*}(R)$$
     > 
-    > 设 $D^k$ 为恒等表示, $\chi^k(R) = 1$, 则约化系数为:
+    > 设 $D^k = D^i_lD^j_m$ 为恒等表示, $\forall R\in G,~~\chi^k(R) \equiv 1$, 则约化系数为:
     > 
     > $$\begin{array}{rcl}
     > a_k
@@ -489,17 +489,89 @@ $$\sum\limits_{C} h_C \chi_{(C)}^j = \left\{\begin{matrix}g&,~when&j=1\\0&,~when
 
 #### [`4.6`](#4.6) 写出晶体点群 $C_{2h}$ 及 $D_2$ 的乘法表及其类.
 
+> `解:`
+> 
+> $C_{2h}$ 包含
+> 
+> $$\{E,c_2,\sigma_h,c_2\sigma_h\}$$
+> 
+> 乘法表为
+> 
+> $$\begin{array}{c|ccccc}
+>             & E           & c_2         & \sigma_h    & c_2\sigma_h \\ \hline
+> E           & E           & c_2         & \sigma_h    & c_2\sigma_h \\
+> c_2         & c_2         & E           & c_2\sigma_h & \sigma_h    \\
+> \sigma_h    & \sigma_h    & c_2\sigma_h & E           & c_2         \\
+> c_2\sigma_h & c_2\sigma_h & \sigma_h    & c_2         & E           \\
+> \end{array}$$
+> 
+> $D_{2}$ 包含
+> 
+> $$\{E,C_{2x},C_{2y},C_{2z}\}$$
+> 
+> 乘法表为
+> 
+> $$\begin{array}{c|ccccc}
+>        & E      & C_{2x} & C_{2y} & C_{2z} \\ \hline
+> E      & E      & C_{2x} & C_{2y} & C_{2z} \\
+> C_{2x} & C_{2x} & E      & C_{2z} & C_{2y} \\
+> C_{2y} & C_{2y} & C_{2z} & E      & C_{2x} \\
+> C_{2z} & C_{2z} & C_{2y} & C_{2x} & E      \\
+> \end{array}$$
+
 <span id="4.8"></span>
 
 #### [`4.8`](#4.8) 找出点群 $C_{3V}$ 的不可约表示矩阵及每一个不可约表示的基函数.
 
-<span id="4.10"></span>
-
-#### [`4.10`](#4.10) 已知点群 $T$ 的三维表示的基函数是 $x,\,y$ 以及 $z$ . 试构造 $T$ 群的三维表示的表示矩阵.
+> `解:`
+> 
+> $C_{3V}$ 与 $D_3$ 同构, 所以其特征标表为: 
+> 
+> $$ \begin{array}{c|c|cc|ccc}
+>    & E & C_{3z} & C_{3z}^{-1} & I_A & I_B & I_C\\\hline
+> D^1& 1 & 1 & 1 & 1 & 1 & 1\\
+> D^2& 1 & 1 & 1 &-1 &-1 &-1\\
+> D^3& 2 &-1 &-1 & 0 & 0 & 0
+> \end{array}$$
+> 
+> 
+> 
+> 
+> 
+> 
 
 <span id="4.11"></span>
 
 #### [`4.11`](#4.11) 证明点群 $D_n$ 是由 $a$ 及 $b$ 两个元生成的, 生成关系是 $a^n=b^n=(ab)^2=E$ , $E$ 是单位元.
+
+> `解:`
+> 
+> $D_n$ 群包含 1个n度轴 和 n个2度轴, 以下通过列举证明:
+> 
+> + `D2群`:
+> 
+>   $$令~a=c_{2z},~~b=c_{2x}$$
+> 
+>   $$D_2 = \{E,~a,~b,~ab\}$$
+> 
+> + `D3群`:
+> 
+>   $$令~a=c_{3z},~~b=c_{2x}$$
+> 
+>   $$D_3 = \{E,~a,~b,~ab,~a^2,~a^2b\}$$
+> 
+> + `D4群`:
+> 
+>   $$令~a=c_{4z},~~b=c_{2x}$$
+> 
+>   $$D_4 = \{E,~a,~b,~ab,~a^2,~a^2b,~a^3,~a^3b,~a^4\}$$
+> 
+> + `D6群`:
+> 
+>   $$令~a=c_{6z},~~b=c_{2x}$$
+> 
+>   $$D_6 = \{E,~a,~b,~ab,~a^2,~a^2b,~a^3,~a^3b,~a^4,\dots\}$$
+> 
 
 <span id="4.14"></span>
 
@@ -519,18 +591,166 @@ $$
 
 </center>
 
+> `解:`
+> 
+> 设六角晶系电容率张量为
+> 
+> $$\varepsilon = 
+> \left[\begin{matrix}
+> \varepsilon_{11}&\varepsilon_{12}&\varepsilon_{13}\\
+> \varepsilon_{21}&\varepsilon_{22}&\varepsilon_{23}\\
+> \varepsilon_{31}&\varepsilon_{32}&\varepsilon_{33}\\
+> \end{matrix}\right]
+> $$
+> 
+> 使用变换矩阵 `az`(绕z旋转60度) `ax`(绕x旋转180度) 作为其生成元
+> 
+> $$a_z = 
+> \left[\begin{matrix}
+> -\frac{1}{2} & -\frac{\sqrt{{3}}}{2} & 0 \\
+> \frac{\sqrt{{3}}}{2}  &  \frac{1}{2} & 0\\
+> 0&0&1\\
+> \end{matrix}\right]
+> ~~~~a_x = 
+> \left[\begin{matrix}
+> 1 &  0 &  0 \\
+> 0 & -1 &  0 \\
+> 0 &  0 & -1 \\
+> \end{matrix}\right]
+> $$
+> 
+> 基于相似不变性, 要求:
+> 
+> $$
+> \forall i,j \geq 0~,~~~~a_z^i a_x^j \varepsilon a_z^-j a_x^-i= \varepsilon
+> $$
+> 
+> 事实上, 只需要验证如下等式:
+> 
+> $$\begin{array}{ccc}
+> a_x\,\varepsilon\,a_x^{-1} &=& \varepsilon\\
+>   \left[\begin{matrix}
+>   \varepsilon_{11}& 0              & 0              \\
+>    0              &\varepsilon_{22}& 0              \\
+>    0              & 0              &\varepsilon_{33}\\
+>   \end{matrix}\right]
+> &=&
+>   \left[\begin{matrix}
+>   \varepsilon_{11}&\varepsilon_{12}&\varepsilon_{13}\\
+>   \varepsilon_{21}&\varepsilon_{22}&\varepsilon_{23}\\
+>   \varepsilon_{31}&\varepsilon_{32}&\varepsilon_{33}\\
+>   \end{matrix}\right] \\\,\\
+> a_z\,\varepsilon\,a_z^{-1} &=& \varepsilon\\
+>   \left[\begin{matrix}
+>   \varepsilon_{22}&\dots           &\dots           \\
+>   \dots           &\varepsilon_{11}&\dots           \\
+>   \dots           &\dots           &\varepsilon_{33}\\
+>   \end{matrix}\right]
+> &=&
+>   \left[\begin{matrix}
+>   \varepsilon_{11}&\varepsilon_{12}&\varepsilon_{13}\\
+>   \varepsilon_{21}&\varepsilon_{22}&\varepsilon_{23}\\
+>   \varepsilon_{31}&\varepsilon_{32}&\varepsilon_{33}\\
+>   \end{matrix}\right]
+> \end{array}
+> $$
+> 
+> 上述方程的解是 $\varepsilon_{11}=\varepsilon_{22}$ 且除对角元外所有矩阵元为零, 与题设相符.
+
+## 特征标
+
 <span id="3.1"></span>
 
-#### [`3.1`](#3.1) 试证明: 若有 $$X'_i=\sum\limits_j R_{ij}x_j$$, 则有 $$\dfrac{\partial}{\partial x'_i}=\sum\limits_j R_{ij}\dfrac{\partial}{\partial x_j}$$.
+#### [`3.1`](#3.1) 试证明: 若有
+
+$$x'_i=\sum\limits_j R_{ij}x_j$$
+
+#### 则有
+
+$$\dfrac{\partial}{\partial x'_i}=\sum\limits_j R_{ij}\dfrac{\partial}{\partial x_j}$$
+
+> `解:`
+> 
+> 因为R是一个函数变换, 所以它的求导应该遵循链式法则.
+> 
+> 即证:
+> 
+> $$\begin{matrix}
+> 1 &=& \Big(\sum\limits_j R_{ij}\dfrac{\partial}{\partial x_j}\Big)x'_i\\
+> &=& \sum\limits_jR_{ij}\Big(\dfrac{\partial}{\partial x_j}\big(R_{ij}^{-1}x'_i\big)\Big)
+> \end{matrix}$$
+> 
+> 使用 $x'_i=\sum\limits_j R_{ij}x_j$ 进行替换:
+> 
+> $$\begin{matrix}
+> \sum\limits_j R_{ij}\dfrac{\partial x'_i}{\partial x_j} 
+> &=& \sum\limits_j \Big(R_{ij}\dfrac{\partial}{\partial x_j} \sum\limits_j R_{ij}x_j \Big) \\
+> &=&
+> \end{matrix}$$
+
+```plain
+Problem Here
+```
 
 <span id="3.2"></span>
 
 #### [`3.2`](#3.2) 利用式 `3.1-39` 分别算出绕 $x,y,z$ 轴转动 $\phi$ 角的转动矩阵.
 
+> `解:`
+> 
+> 绕 `x` 轴转动, 取 $\left[\lambda,~\mu,~\nu\right]=[~\phi,~0,~0~]$
+>
+> $$R_x = 
+> \left[\begin{matrix}
+> 1 &  0 &  0 \\
+> 0 &  0 &-sin(\phi) \\
+> 0 &  sin(\phi) & cos(\phi) \\
+> \end{matrix}\right]
+> $$
+> 
+> 绕 `y` 轴转动, 取 $\left[\lambda,~\mu,~\nu\right]=[~0,~\phi,~0~]$
+>
+> $$R_y = 
+> \left[\begin{matrix}
+> cos(\phi) &  0 & sin(\phi) \\
+> 0 & 1 &  0 \\
+>-sin(\phi) &  0 & cos(\phi) \\
+> \end{matrix}\right]
+> $$
+> 
+> 绕 `z` 轴转动, 取 $\left[\lambda,~\mu,~\nu\right]=[~0,~0,~\phi~]$
+>
+> $$R_z = 
+> \left[\begin{matrix}
+> 0 &-sin(\phi) &  0 \\
+> sin(\phi) &  0 &  0 \\
+> 0 &  0 &  1 \\
+> \end{matrix}\right]
+> $$
+
+```plain
+Question: 为何与常见的二维转动直和形式不同?
+```
+
 <span id="3.5"></span>
 
 #### [`3.5`](#3.5) 试以 $l=1$ 的球鞋函数为基函数, 求出完全转动群的不可约表示 $D^1(\alpha,\beta,\gamma)$ .
 
+> `解:`
+> 
+
+```plain
+Problem Here
+```
+
 <span id="3.7"></span>
 
 #### [`3.7`](#3.7) $l=$ *整数* 时, 证明 $D^1(0,0,\gamma)$ 是对角矩阵.
+
+> `解:`
+> 
+> 
+> 
+> 
+> 
+> 

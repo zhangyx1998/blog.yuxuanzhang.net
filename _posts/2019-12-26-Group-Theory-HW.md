@@ -448,10 +448,40 @@ $$\sum\limits_{C} h_C \chi_{(C)}^j = \left\{\begin{matrix}g&,~when&j=1\\0&,~when
 1. 直积表示 $D^i\otimes D^{j*}$ 并不包含恒等表示
     > `证明:`
     > 
+    > 设 $\chi(R)$ 是 $D^i\otimes D^{j*}$ 的特征标
+    > 
+    > $$\chi(R) = \chi^i(R)\,\chi^{j*}(R)$$
+    > 
+    > 设 $D^k$ 为恒等表示, $\chi^k(R) = 1$, 则约化系数为:
+    > 
+    > $$\begin{array}{rcl}
+    > a_k
+    > &=& \dfrac{1}{g}\sum\limits_{R\in G}\chi^{k*}(R)\chi(R)\\
+    > &=& \dfrac{1}{g}\sum\limits_{R\in G}\chi(R)\\
+    > &=& \dfrac{1}{g}\sum\limits_{R\in G}\chi^{i}(R)\chi^{j*}(R)
+    > \end{array}$$
+    > 
+    > 由题设, $D^i$ 及 $D^j$ 是群 $G$ 的两个不等价的不可约表示
+    > 
+    > $$ a_k = \dfrac{1}{g}\sum\limits_{R\in G}\chi^{i}(R)\chi^{j*}(R) = 0 $$
+    > 
     > `原命题得证`
 
 2. 一个不可约表示与其复共轭表示的直积中, 恒等表示出现且仅出现一次.
     > `证明:`
+    >
+    > 设
+    > 
+    > $$\chi(R) = \chi^i(R)\,\chi^{j*}(R)$$
+    > 
+    > 则(根据正交性定理): 
+    > 
+    > $$\begin{array}{rcl}
+    > a_k
+    > &=& \dfrac{1}{g}\sum\limits_{R\in G}\chi^{k}(R)\chi(R)\\
+    > &=& \dfrac{1}{g}\sum\limits_{R\in G}\chi^{i}(R)\chi^{i*}(R)\\
+    > &=& 1
+    > \end{array}$$
     > 
     > `原命题得证`
 
@@ -484,7 +514,9 @@ $$
 $$
 
 <center>
-其中 $\varepsilon_{\parallel}$ 及 $\varepsilon_{\perp}$ 分别为平行及垂直于六度轴的分量.
+
+其中 $\varepsilon_\parallel$ 及 $\varepsilon_\perp$ 分别为平行及垂直于六度轴的分量.
+
 </center>
 
 <span id="3.1"></span>
@@ -502,13 +534,3 @@ $$
 <span id="3.7"></span>
 
 #### [`3.7`](#3.7) $l=$ *整数* 时, 证明 $D^1(0,0,\gamma)$ 是对角矩阵.
-
-***
-
-1.1
-
-1.2
-
-1.15
-
-1.11

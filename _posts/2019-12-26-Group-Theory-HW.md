@@ -9,6 +9,7 @@ tags:
     - Physics
     - MyCourses
 mathjax: true
+published: false
 ---
 
 <span id="1.12"></span>

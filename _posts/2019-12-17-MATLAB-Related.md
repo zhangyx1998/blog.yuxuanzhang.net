@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "MATLAB Related"
-subtitle:   "未解决的问题和自己的感想"
+title:  "Matlab学习中未解决的问题和自己的感想"
+subtitle:   "MATLAB Related"
 header-img: "resources/matlab.png"
 date:   2019-12-17 21:30:00 +0800
 tags:

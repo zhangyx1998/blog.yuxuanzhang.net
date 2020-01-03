@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "MATLAB Essentials 1"
-subtitle:   "Matlab基本语法和数据结构"
+title:  "Matlab基本语法和数据结构"
+subtitle:   "MATLAB Essentials 1"
 header-img: "resources/matlab.png"
 date:   2019-12-17 15:30:00 +0800
 tags:

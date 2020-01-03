@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "MATLAB Essentials 2"
-subtitle:   "Matlab常用绘图函数"
+title:  "Matlab常用绘图函数"
+subtitle:   "MATLAB Essentials 2"
 header-img: "resources/matlab.png"
 date:   2019-12-17 16:30:00 +0800
 tags:

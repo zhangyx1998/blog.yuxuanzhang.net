@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "MATLAB Essentials 4"
-subtitle:   "Matlab解物理问题的常用算法"
+title:  "Matlab解物理问题的常用算法"
+subtitle:   "MATLAB Essentials 4"
 header-img: "resources/matlab.png"
 date:   2019-12-17 17:30:00 +0800
 tags:

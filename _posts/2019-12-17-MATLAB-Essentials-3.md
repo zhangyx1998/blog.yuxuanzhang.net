@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "MATLAB Essentials 3"
-subtitle:   "Matlab符号化系统"
+title:  "Matlab符号化系统"
+subtitle:   "MATLAB Essentials 3"
 header-img: "resources/matlab.png"
 date:   2019-12-17 16:30:00 +0800
 tags:

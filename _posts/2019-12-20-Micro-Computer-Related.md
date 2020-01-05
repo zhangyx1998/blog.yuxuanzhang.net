@@ -186,6 +186,11 @@ tags:
   > 按位左/右移动, 溢出位丢弃, 空缺位补0
   + `SCL` , `SCR`
   > 按位左/右移动, 溢出位进CF, 空缺位补0
+
+  ```plain
+  注意: 循环/移位操作数除非为1, 否则必须使用CL传递.
+  ```
+
 + 串操作指令系列
   + `MOVS` , `MOVSB` , `MOVSW`
   + `SCAS` , `SCASB` , `SCASW`
@@ -195,6 +200,29 @@ tags:
 ## 汇编语言的语法和基本结构
 
 + 条件转移
+  >  
+  > | Command | Jump Condition | 
+  > | :---: | :- |
+  > |`JCXZ` | `CX` = 0 | 
+  > |`JG`<br>`JNLE`| `SF`==`OF` AND `ZF`=0 |
+  > |`JGE`<br>`JNL`| |
+  > |`JL`<br>`JNGE`| |
+  > |`JLE`<br>`JNG`| |
+  > |`JO`|
+  > |`JNO`|
+  > |`JS`|
+  > |`JNS`|
+  > |`JA`<br>`JNBE`|
+  > |`JAE`<br>`JNB`
+  > |`JB`<br>`JNAE`
+  > |`JBE`<br>`JNA`
+  > |`JC`|
+  > |`JNC`|
+  > |`JE`<br>`JZ`|
+  > |`JNE`<br>`JNZ`|
+  > |`JP`<br>`JPE`|
+  > |`JNP`<br>`JPO`| 
+
   + 条件转移指令的转移范围
 + 中断
   + 中断向量表

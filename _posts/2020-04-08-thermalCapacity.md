@@ -3,7 +3,7 @@ layout: post
 title: "德拜热容模型"
 subtitle: "积分计算器"
 header-img: "resources/physics.png"
-date: 2020-04-08 00:00:00 +0800
+date: 2020-04-08 18:00:00 +0800
 tags:
   - Courses
   - SolidPhysics

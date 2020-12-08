@@ -13,12 +13,10 @@ multilingual: false
 
 ### 计算依据
 
-$$
-    \begin{align}
-    C_{V}&=9 N k_B\left(\frac{k_B T}{\hbar \omega_{D}}\right)^{3} \int_{0}^{\frac{\hbar \omega_{D}}{k_B T}} \frac{\xi^{4} e^{\xi}}{\left(e^{\xi}-1\right)^{2}} d \xi\\
-        &=9 R \left(\frac{T}{\Theta_D}\right)^{3} \int_{0}^{\frac{\Theta_D}{T}} \frac{\xi^{4} e^{\xi}}{\left(e^{\xi}-1\right)^{2}} d \xi
-    \r{align}
-$$
+$$\begin{array}
+C_{V}&=9 N k_B\left(\frac{k_B T}{\hbar \omega_{D}}\right)^{3} \int_{0}^{\frac{\hbar \omega_{D}}{k_B T}} \frac{\xi^{4} e^{\xi}}{\left(e^{\xi}-1\right)^{2}} d \xi\\
+&=9 R \left(\frac{T}{\Theta_D}\right)^{3} \int_{0}^{\frac{\Theta_D}{T}} \frac{\xi^{4} e^{\xi}}{\left(e^{\xi}-1\right)^{2}} d \xi
+\end{array}$$
 
 > 常数包括:
 > 

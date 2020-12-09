@@ -4,8 +4,6 @@ title: Professor to Apply
 subtitle:   "The list"
 # header-img: "img/xxx.jpg"
 date:   2020-12-09 00:10:00 +0800
-tags:
-    - Fall 2020 Application
 hidden: true
 ---
 

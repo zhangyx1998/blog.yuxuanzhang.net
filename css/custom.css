@@ -1,0 +1,11 @@
+img + em {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    color: gray;
+}
+
+img{
+    margin-bottom: 0.6em !important;
+}

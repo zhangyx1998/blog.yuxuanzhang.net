@@ -1,3 +1,5 @@
+.Caption em,
+video + em,
 img + em {
     display: block;
     width: 100%;
@@ -6,6 +8,6 @@ img + em {
     color: gray;
 }
 
-img{
-    margin-bottom: 0.6em !important;
+img, video{
+    margin-bottom: 0.4em !important;
 }
